@@ -4,7 +4,7 @@ require("dotenv").config()
 const pool = mysql.createPool({
     connectionLimit: 20,
     host:process.env.HOST,
-    user:'root',
+    user:"root",
     password:process.env.PASSWORD,
     database:process.env.DB_NAME,
 }).promise()
