@@ -1,4 +1,4 @@
-const {getDataHepler,getNotes_helper,findNoteHelper,createNote}= require("../model/userHelper")
+const {getDataHepler,getNotes_helper,findNoteHelper,createNote, setUserOne}= require("../model/userHelper")
 
 
  const getData=async (req,res) =>{
@@ -6,6 +6,13 @@ const {getDataHepler,getNotes_helper,findNoteHelper,createNote}= require("../mod
     res.send(user)
 }
 
+const setUserData = async (req,res) =>{
+    let userId= req.params.id;
+    let userPass = req.params.pass;
+    console.log(userId, userPass);
+    let setUserFlag = await setUserOne(userId, userPass);
+    res.send(setUserFlag);
+}
  const getNotes=async (req,res)=>{
     let notes = await getNotes_helper()
     res.send(notes)
@@ -23,4 +30,4 @@ const createNewNote= async(req,res)=>{
 
 
 
-module.exports={getNotes,getData,findNoteWithId,createNewNote}
+module.exports={getNotes,getData,findNoteWithId,createNewNote, setUserData}

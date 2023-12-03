@@ -9,6 +9,18 @@ const pool = require("../config/db")
       throw error;
     }
   }
+  async function setUserOne(userId, userPass)
+  {
+    let setUserFlag = false;
+    try{
+      const[rows] = await pool.query("insert into user(name, password) values('" + userId + "', '" + userPass + "')");
+      setUserFlag = true;
+      return setUserFlag;
+    }catch(error){
+      console.error('insert new user error:', error);
+      throw error;
+    }
+  }
 
    const  getNotes_helper =async ()=>{
     try {
@@ -43,6 +55,6 @@ const pool = require("../config/db")
     }
   }
 
-  module.exports={getDataHepler,getNotes_helper,findNoteHelper,createNote}
+  module.exports={getDataHepler,getNotes_helper,findNoteHelper,createNote, setUserOne}
 
 

@@ -16,7 +16,7 @@ var port= '3000'
 // app.set('port', port);
 
 server.listen(port,(()=>{
-  console.log('Server is running on port '+port);
+  console.log('Server is running on http://127.0.0.1:'+port);
 }));
 server.on('error', onError);
 server.on('listening', onListening);

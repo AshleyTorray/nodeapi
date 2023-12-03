@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 const {
   getData,
+  setUserData,
   getNotes,
   findNoteWithId,
   createNewNote
@@ -13,6 +14,8 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/getusers',getData)
+router.get('/setusers/:id/:pass', setUserData);
+
 
 router.get("/notes",getNotes)
 router.get("/notes/:id",findNoteWithId)
