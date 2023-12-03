@@ -9,6 +9,21 @@ const pool = require("../config/db")
       throw error;
     }
   }
+  async function verfyUser(userId, userPass)
+  {
+    let userFlag = false;
+    try{
+      const[rows] = await pool.query("select * from user where name = ? and password = ?", [userId, userPass]);
+      if(rows.length > 0)
+      {
+        userFlag = true;
+      }
+      return userFlag;
+    }catch(error){
+      console.error('insert new user error:', error);
+      throw error;
+    }
+  }
   async function setUserOne(userId, userPass)
   {
     let setUserFlag = false;
@@ -55,6 +70,6 @@ const pool = require("../config/db")
     }
   }
 
-  module.exports={getDataHepler,getNotes_helper,findNoteHelper,createNote, setUserOne}
+  module.exports={getDataHepler,getNotes_helper,findNoteHelper,createNote, setUserOne, verfyUser}
 
 

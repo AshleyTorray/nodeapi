@@ -3,6 +3,7 @@ var router = express.Router();
 const {
   getData,
   setUserData,
+  verfyuser,
   getNotes,
   findNoteWithId,
   createNewNote
@@ -14,7 +15,8 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/getusers',getData)
-router.get('/setusers/:id/:pass', setUserData);
+router.get('/setusers/:id/:pass', setUserData)
+router.get('/verifyuser/:id/:pass',verfyuser)
 
 
 router.get("/notes",getNotes)
