@@ -12,7 +12,7 @@ const {
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+  res.send('<h1>welcome proxy changer backend</h1>');
 });
 
 router.get('/getusers',getData)
