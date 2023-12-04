@@ -24,6 +24,20 @@ const pool = require("../config/db")
       throw error;
     }
   }
+  async function loginUser(userMail, userPass){
+    let userFlag = false;
+    try{
+      const[rows] = await pool.query("select * from user where email = ? and password = ?", [userMail, userPass]);
+      if(rows.length > 0)
+      {
+        userFlag = true;
+      }
+      return userFlag;
+    }catch(error){
+      console.error('no user:', error);
+      throw error;
+    }
+  }
   async function setUserOne(userId, userPass)
   {
     let setUserFlag = false;

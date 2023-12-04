@@ -1,4 +1,4 @@
-const {getDataHepler,getNotes_helper,findNoteHelper,createNote, setUserOne, verfyUser}= require("../model/userHelper")
+const {getDataHepler,getNotes_helper,findNoteHelper,createNote, setUserOne, verfyUser, loginUser}= require("../model/userHelper")
 
 
  const getData=async (req,res) =>{
@@ -36,6 +36,15 @@ const createNewNote= async(req,res)=>{
     res.send(newNote)
 }
 
+const loginUser = async(req, res) => {
+    let userEmail = req.body.email;
+    let userPass = req.body.password;
+    let loginFlag = await loginUser(userEmail,  userPass);
+    res.send(loginFlag);
+}
 
 
-module.exports={getNotes,getData,findNoteWithId,createNewNote, setUserData, verfyuser}
+
+
+
+module.exports={getNotes,getData,findNoteWithId,createNewNote, setUserData, verfyuser, loginUser}
