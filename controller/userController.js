@@ -8,8 +8,8 @@ const {getDataHepler,getNotes_helper,findNoteHelper,createNote, setUserOne, verf
 
 
 const verfyuser = async (req,res)=>{
-    let userId= req.params.id;
-    let userPass = req.params.pass;
+    let userId= req.query.id;
+    let userPass = req.query.pass;
     let userFlag = await verfyUser(userId, userPass);
     res.send(userFlag);
 }
