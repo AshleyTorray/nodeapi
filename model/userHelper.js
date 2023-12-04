@@ -24,7 +24,7 @@ const pool = require("../config/db")
       throw error;
     }
   }
-  async function loginUser(userMail, userPass){
+  async function loginHelper(userMail, userPass){
     let userFlag = false;
     try{
       const[rows] = await pool.query("select * from user where email = ? and password = ?", [userMail, userPass]);
@@ -84,6 +84,6 @@ const pool = require("../config/db")
     }
   }
 
-  module.exports={getDataHepler,getNotes_helper,findNoteHelper,createNote, setUserOne, verfyUser}
+  module.exports={getDataHepler,getNotes_helper,findNoteHelper,createNote, setUserOne, verfyUser, loginHelper}
 
 

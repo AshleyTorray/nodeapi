@@ -6,7 +6,8 @@ const {
   verfyuser,
   getNotes,
   findNoteWithId,
-  createNewNote
+  createNewNote,
+  loginUser
 }= require("../controller/userController")
 
 /* GET users listing. */
@@ -17,6 +18,8 @@ router.get('/', function(req, res, next) {
 router.get('/getusers',getData)
 router.get('/setusers/:id/:pass', setUserData)
 router.get('/verifyuser/:id/:pass',verfyuser)
+
+router.post('/login', loginUser);
 
 
 router.get("/notes",getNotes)
