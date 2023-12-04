@@ -37,8 +37,8 @@ const createNewNote= async(req,res)=>{
 }
 
 const loginUser = async(req, res) => {
-    let userEmail = req.body.email;
-    let userPass = req.body.password;
+    let userEmail = req.query.email;
+    let userPass = req.query.password;
     let loginFlag = await loginHelper(userEmail,  userPass);
     res.send(loginFlag);
 }
