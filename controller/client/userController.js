@@ -37,10 +37,12 @@ const createNewNote= async(req,res)=>{
 }
 
 const loginUser = async(req, res) => {
-    let userEmail = req.body.email;
-    let userPass = req.body.password;
-    let loginFlag = await loginHelper(userEmail,  userPass);
-    // loginFlag = true;
+    // let userEmail = req.body.email;
+    // let userPass = req.body.password;
+    // let loginFlag = await loginHelper(userEmail,  userPass);
+
+    // *deploy test
+    loginFlag = true;
     res.send(loginFlag);
 }
 
