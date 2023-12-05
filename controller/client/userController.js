@@ -1,4 +1,4 @@
-const {getDataHepler,getNotes_helper,findNoteHelper,createNote, setUserOne, verfyUser, loginHelper}= require("../model/userHelper")
+const {getDataHepler,getNotes_helper,findNoteHelper,createNote, setUserOne, verfyUser, loginHelper}= require("../../model/userHelper")
 
 
  const getData=async (req,res) =>{
@@ -40,7 +40,7 @@ const loginUser = async(req, res) => {
     let userEmail = req.query.email;
     let userPass = req.query.password;
     let loginFlag = await loginHelper(userEmail,  userPass);
-    loginFlag = true;
+    // loginFlag = true;
     res.send(loginFlag);
 }
 

@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var http = require('http');
 var debug = require('debug')('mysqlnode:server');
-var usersRouter = require('./routes/users');
+var api = require('./routes/api');
 
 var app = express();
 
@@ -65,7 +65,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-app.use('/', usersRouter);
+app.use('/', api);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
