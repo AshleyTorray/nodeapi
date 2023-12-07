@@ -1,8 +1,8 @@
 
 
-
-const connectToServer = async (req, res) => {
-            
+let serverUrl = '';
+const connectToServer = async (req, res) => {   
+    
 }
 
 module.exports = {connectToServer}
